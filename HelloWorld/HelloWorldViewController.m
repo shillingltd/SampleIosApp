@@ -9,6 +9,8 @@
 #import "HelloWorldViewController.h"
 
 @implementation HelloWorldViewController
+@synthesize messageTextField;
+@synthesize labelOutput;
 
 - (void)didReceiveMemoryWarning
 {
@@ -26,6 +28,8 @@
 
 - (void)viewDidUnload
 {
+    [self setMessageTextField:nil];
+    [self setLabelOutput:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -57,4 +61,6 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (IBAction)changeGreeting:(id)sender {
+}
 @end
