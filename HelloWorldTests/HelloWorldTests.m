@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in HelloWorldTests");
+    STAssertEquals(1, 1, @"One should be one");
 }
 
 @end
