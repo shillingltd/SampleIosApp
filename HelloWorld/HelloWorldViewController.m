@@ -9,8 +9,9 @@
 #import "HelloWorldViewController.h"
 
 @implementation HelloWorldViewController
-@synthesize messageTextField;
-@synthesize labelOutput;
+@synthesize messageTextField=_messageTextField;
+@synthesize labelOutput=_labelOutput;
+@synthesize userName=_userName;
 
 - (void)didReceiveMemoryWarning
 {
@@ -62,5 +63,31 @@
 }
 
 - (IBAction)changeGreeting:(id)sender {
+    
+    self.userName = self.messageTextField.text;
+    
+    NSString *nameString = self.userName;
+    
+    if ([nameString length] == 0) {
+        nameString = @"World";
+    }
+    
+    NSString *greeting = [[NSString alloc] initWithFormat:@"Hello, %@!", nameString];
+    
+    self.labelOutput.text = greeting;
+    
+    NSLog(@"Changed greeting to %@", greeting);
+    NSLog(@"Sender %@", sender);
+    
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    if(theTextField == self.messageTextField) {
+        [theTextField resignFirstResponder];
+    }
+    
+    [self changeGreeting:theTextField];
+    
+    return YES;
 }
 @end

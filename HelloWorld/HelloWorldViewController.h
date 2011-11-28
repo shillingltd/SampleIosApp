@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HelloWorldViewController : UIViewController
+@interface HelloWorldViewController : UIViewController {
+    NSString *userName;
+}
+
 - (IBAction)changeGreeting:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *messageTextField;
 @property (weak, nonatomic) IBOutlet UILabel *labelOutput;
+
+@property (nonatomic, copy) NSString *userName;
 
 @end
